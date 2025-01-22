@@ -113,6 +113,12 @@ Bienvenue dans notre école
     print(school.get_course_by_id(9))
     print("***************************")
     print(school.get_teacher_by_id(1))
+    print(school.get_teacher_by_id(2))
+    print(school.get_teacher_by_id(3))
+    print("***************************")
+    print(school.get_student_by_id(1))
+    print(school.get_student_by_id(1))
+    print(school.get_student_by_id(1))
     print("***************************")
 
 

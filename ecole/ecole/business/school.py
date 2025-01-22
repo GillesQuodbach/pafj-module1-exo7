@@ -7,6 +7,7 @@ Classe School
 from dataclasses import dataclass, field
 
 from ecole.ecole.daos.course_dao import CourseDao
+from ecole.ecole.daos.student_dao import StudentDao
 from ecole.ecole.daos.teacher_dao import TeacherDao
 from ecole.ecole.models.course import Course
 from ecole.ecole.models.teacher import Teacher
@@ -56,3 +57,8 @@ class School:
     def get_teacher_by_id(id_teacher: int):
         teacher_dao: TeacherDao = TeacherDao()
         return teacher_dao.read(id_teacher)
+
+    @staticmethod
+    def get_student_by_id(id_student: int):
+        student_dao: StudentDao = StudentDao()
+        return student_dao.read(id_student)
