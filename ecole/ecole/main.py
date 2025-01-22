@@ -7,6 +7,7 @@ Application de gestion d'une école
 
 from datetime import date
 
+from ecole.ecole.models import teacher
 from models.address import Address
 from models.course import Course
 from models.teacher import Teacher
@@ -100,6 +101,7 @@ Bienvenue dans notre école
 
     school: School = School()
 
+
     # initialisation d'un ensemble de cours, enseignants et élèves composant l'école
     init_school(school)
 
@@ -109,6 +111,9 @@ Bienvenue dans notre école
     print(school.get_course_by_id(1))
     print(school.get_course_by_id(2))
     print(school.get_course_by_id(9))
+    print("***************************")
+    print(school.get_teacher_by_id(1))
+    print("***************************")
 
 
 if __name__ == '__main__':

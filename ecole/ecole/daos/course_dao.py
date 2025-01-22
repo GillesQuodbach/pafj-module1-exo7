@@ -24,11 +24,22 @@ class CourseDao(Dao[Course]):
         """Renvoit le cours correspondant à l'entité dont l'id est id_course
            (ou None s'il n'a pu être trouvé)"""
         course: Optional[Course]
+
+        # connection a la base de donnée
+        # Dao.connection = connection a la BD
+        # cursor = permet d'executer des requête sql
+        # as = garanti que le cursor est fermé après utilisation
         with Dao.connection.cursor() as cursor:
+            # select toutes les colonnes de la table course ou id_course = valeur fourni
             sql = "SELECT * FROM course WHERE id_course=%s"
+            # execute la requête "sql" en remplaçant %s par la valeur de id_course
+            # !!! (id_course,) = la virgule s'assure qu'on passe un tuple
             cursor.execute(sql, (id_course,))
+            # récupère la première ligne trouvé sinon None
             record = cursor.fetchone()
+        # si un cours est trouvé
         if record is not None:
+            # on crée un objet Course avec les valeurs récupérées
             course = Course(record['name'], record['start_date'], record['end_date'])
             course.id = record['id_course']
         else:
