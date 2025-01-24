@@ -9,6 +9,7 @@ from ecole.ecole.daos.dao import Dao
 from dataclasses import dataclass
 from typing import Optional
 
+
 @dataclass()
 class TeacherDao(Dao[Teacher]):
     def create(self, teacher: Teacher) -> int:
